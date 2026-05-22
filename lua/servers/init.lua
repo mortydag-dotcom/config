@@ -31,7 +31,9 @@ lspconfig.lua_ls.setup({
     on_attach = on_attach,
     settings = {
         Lua = {
-            diagnostics = { globals = { "vim" } },
+            diagnostics = { 
+                globals = { "vim" } 
+            },
             workspace = {
                 library = {
                     vim.fn.expand("$VIMRUNTIME/lua"),
