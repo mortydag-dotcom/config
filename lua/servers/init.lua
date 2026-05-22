@@ -1,7 +1,9 @@
+local lspconfig = require("lspconfig")
+
 local on_attach = function(client, bufnr)
     local keymap = vim.keymap.set
     local opts = {
-        noremap = true, 
+        noremap = true,
         silent = true,
         buffer = bufnr,
     }
@@ -25,7 +27,7 @@ local on_attach = function(client, bufnr)
     keymap("n", "<leader>gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- go to implementation
 end
 
-vim.lsp.config("lua_ls", {
+lspconfig.lua_ls.setup({
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -40,5 +42,4 @@ vim.lsp.config("lua_ls", {
     }
 })
 
-vim.lsp.enable("lua_ls")
 
